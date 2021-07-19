@@ -40,4 +40,28 @@ export class ProductService {
   saveProduct(product:Product) {
     this.products.push(product);
   }
+
+  getProductById(id:any){
+    for(let i = 0; i < this.products.length; i++){
+      if (this.products[i].id == id){
+        return this.products[i];
+      }
+    }
+    return null;
+  }
+
+  edit(product: Product){
+    for(let i = 0; i < this.products.length; i++){
+      if (this.products[i].id === product.id){
+        this.products[i] = product;
+      }
+    }
+  }
+  delete(product: Product){
+    for(let i = 0; i < this.products.length; i++){
+      if (this.products[i].id === product.id){
+        this.products.splice(this.products.indexOf(product),1);
+      }
+    }
+  }
 }
